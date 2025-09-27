@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>بيع الآلات الثقيلة - شركة عبد الفتاح</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="script.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <div class="logo">
+        <img src="logo.png" alt="شعار شركة عبد الفتاح" class="logo-img" onclick="window.location.href='index.html'">
+      </div>
+      <nav class="nav" id="mainNav">
+  <ul>
+    <li><a href="index.html">الصفحة الرئيسية</a></li>
+   <li class="dropdown" id="worksDropdown">
+  <a href="#">أعمالنا</a>
+  <ul class="dropdown-menu">
+    <li><a href="contracting.html">المقاولات</a></li>
+    <li><a href="trading.html">التجارة</a></li>
+  </ul>
+</li>
+<li class="dropdown" id="productsDropdown">
+  <a href="#">المنتجات</a>
+  <ul class="dropdown-menu">
+    <li><a href="building-materials.html">مواد البناء</a></li>
+    <li><a href="import-from-china.html">الاستيراد من الصين</a></li>
+    
+  </ul>
+</li>
+  <li class="dropdown" id="servicesDropdown">
+  <a href="#">الخدمات</a>
+  <ul class="dropdown-menu">
+    <li><a href="soil-replacement.html">استبدال تربة</a></li>
+    <li><a href="basic-building-materials.html">بيع مواد البناء الأساسية</a></li>
+    <li><a href="heavy-machines-sale.html">بيع الآلات الثقيلة</a></li>
+  </ul>
+</li>
+    <li><a href="about.html">عن الشركة</a></li>
+    <li><a href="contact.html">اتصل بنا</a></li>
+  </ul>
+</nav>
+
+      <button class="hamburger" aria-label="Toggle Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="search">
+        <input type="text" placeholder="ابحث...">
+        <button class="search-btn">
+          <img src="search-icon.png" alt="بحث" class="search-icon">
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+<section class="hero machines-hero">
+  <div class="hero-overlay"></div>
+  <div class="container">
+    <div class="hero-content">
+      <h1>بيع الآلات الثقيلة</h1>
+      <p>نقدم آلات ثقيلة جديدة ومستعملة — بأسعار تنافسية — مع ضمان الجودة والصيانة.</p>
+      <a href="#nature" class="btn-primary">اقرأ المزيد</a>
+    </div>
+  </div>
+</section>
+
+  <!-- Main Content -->
+  <main class="trading-page">
+    <div class="container">
+
+      <!-- Section 1: طبيعة العمل -->
+      <section class="section" id="nature">
+        <h2>طبيعة عملنا في بيع الآلات الثقيلة</h2>
+        <p>
+          نوفر آلات ثقيلة من أبرز الماركات العالمية — مثل كاتربيلر، كوماتسو، وفولفو — جديدة ومستعملة بحالة ممتازة.
+        </p>
+        <p>
+          نقدم خدمات الصيانة والقطع الأصلية — لضمان أداء مستمر وفعال.
+        </p>
+      </section>
+
+      <!-- Section 2: معرض الفيديوهات -->
+<section class="section">
+  <h2>شاهد الآلات في العمل</h2>
+  <p>جولة داخل عمليات التشغيل والصيانة.</p>
+  <div class="video-grid-large">
+    <div class="video-item-large">
+      <video autoplay muted loop playsinline controls poster="machine1-poster.jpg">
+        <source src="machine1.mp4" type="video/mp4">
+        المتصفح لا يدعم الفيديو.
+      </video>
+      <p class="video-caption">حفار كاتربيلر 320 في موقع عمل</p>
+    </div>
+    <div class="video-item-large">
+      <video controls poster="machine2-poster.jpg" playsinline>
+        <source src="machine2.mp4" type="video/mp4">
+        المتصفح لا يدعم الفيديو.
+      </video>
+      <p class="video-caption">جرافة كوماتسو في مشروع طرق</p>
+    </div>
+    <div class="video-item-large">
+      <video controls poster="machine3-poster.jpg" playsinline>
+        <source src="machine3.mp4" type="video/mp4">
+        المتصفح لا يدعم الفيديو.
+      </video>
+      <p class="video-caption">صيانة دورية لآلة ثقيلة</p>
+    </div>
+    <div class="video-item-large">
+      <video controls poster="machine4-poster.jpg" playsinline>
+        <source src="machine4.mp4" type="video/mp4">
+        المتصفح لا يدعم الفيديو.
+      </video>
+      <p class="video-caption">شحن آلة ثقيلة إلى موقع العميل</p>
+    </div>
+  </div>
+</section>
+
+      <!-- Section 3: معرض الصور -->
+      <section class="section">
+        <h2>معرض الصور</h2>
+        <div class="gallery">
+          <img src="machine1.jpg" alt="حفار">
+          <img src="machine2.jpg" alt="جرافة">
+          <img src="machine3.jpg" alt="صيانة">
+          <img src="machine4.jpg" alt="شحن">
+        </div>
+      </section>
+
+      <!-- Section 4: التفاصيل والخدمات -->
+      <section class="section">
+        <h2>خدماتنا في بيع الآلات الثقيلة</h2>
+        <div class="features-grid">
+          <div class="feature-item">
+            <h3>بيع آلات جديدة</h3>
+            <p>من أحدث الموديلات — مع ضمان المصنع.</p>
+          </div>
+          <div class="feature-item">
+            <h3>بيع آلات مستعملة</h3>
+            <p>فحص دقيق — بحالة ممتازة — بأسعار مخفضة.</p>
+          </div>
+          <div class="feature-item">
+            <h3>الصيانة والقطع</h3>
+            <p>فريق فني متخصص — قطع غيار أصلية.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA Button -->
+      <div class="cta-section">
+        <a href="contact.html" class="btn-primary">اطلب كتالوج الآلات</a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+<footer>
+  <div class="footer-container">
+    <div class="footer-section">
+      <h3>عن الشركة</h3>
+      <p>شركة عبد الفتاح للتجارة والمقاولات - الجودة والتميز في خدماتنا منذ 1990.</p>
+    </div>
+    <div class="footer-section">
+      <h3>روابط سريعة</h3>
+      <ul>
+        <li><a href="index.html">الرئيسية</a></li>
+        <li><a href="contracting.html">المقاولات</a></li>
+        <li><a href="trading.html">التجارة</a></li>
+        <li><a href="contact.html">اتصل بنا</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h3>تواصل معنا</h3>
+      <p>
+        <a href="https://wa.me/905375999448" target="_blank" rel="noopener">
+          <i class="fab fa-whatsapp"></i> +905375999448
+        </a>
+      </p>
+      <p>
+        <a href="mailto:Abdel.fattah.company1980@gmail.com" target="_blank" rel="noopener">
+          <i class="fas fa-envelope"></i> Abdel.fattah.company1980@gmail.com
+        </a>
+      </p>
+    </div>
+  </div>
+  <div class="social-container">
+    <a href="https://www.facebook.com/share/194k9k7usG/" target="_blank" rel="noopener" class="facebook">
+      <i class="fab fa-facebook-f"></i>
+    </a>
+    <a href="https://www.instagram.com/abdulftaah.company?utm_source=qr&igsh=MWJzOTc1aHFuajAydA==" target="_blank" rel="noopener" class="instagram">
+      <i class="fab fa-instagram"></i>
+    </a>
+    <a href="https://www.linkedin.com/in/abdul-fattah-company-26a959386?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener" class="linkedin">
+      <i class="fab fa-linkedin-in"></i>
+    </a>
+    <a href="https://youtube.com/channel/UCdID5TtAUkMaYy8-cOvFcOg?si=KPh1p91ptixiY6mX" target="_blank" rel="noopener" class="youtube">
+      <i class="fab fa-youtube"></i>
+    </a>
+    <a href="https://www.tiktok.com/@abdul.fattah.company?_t=ZS-8zzoq7C92IC&_r=1" target="_blank" rel="noopener" class="tiktok">
+      <i class="fab fa-tiktok"></i>
+    </a>
+  </div>
+  <p class="footer-copy">© 2025 Abdul Fattah Company. جميع الحقوق محفوظة.</p>
+</footer>
+
+  <!-- Modal for Images -->
+<div id="imageModal" class="modal">
+  <span class="modal-close" onclick="closeImageModal()">&times;</span>
+  <img class="modal-content" id="modalImage">
+  <div id="caption" class="modal-caption"></div>
+</div>
+</body>
+</html>
