@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // ============ القوائم المنسدلة ============
-  const dropdowns = document.querySelectorAll(".dropdown");
+  // ============ القوائم المنسدلة (تعمل بالضغط فقط) ============
+  const dropdowns = document.querySelectorAll("#mainNav .dropdown");
 
   dropdowns.forEach(dropdown => {
     const toggle = dropdown.querySelector("a");
@@ -8,22 +8,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (!menu) return;
 
-    // على الجوال — النقر يفتح/يغلق القائمة
-    if (window.innerWidth <= 768) {
-      toggle.addEventListener("click", function(e) {
-        e.preventDefault();
-        menu.classList.toggle("show");
-      });
-    } 
-    // على الكمبيوتر — استخدام الـ hover
-    else {
-      dropdown.addEventListener("mouseenter", () => {
-        menu.classList.add("show");
-      });
-      dropdown.addEventListener("mouseleave", () => {
-        menu.classList.remove("show");
-      });
-    }
+    // إزالة أي تأثير للمرور (hover) — والاعتماد على النقر فقط
+    toggle.addEventListener("click", function(e) {
+      e.preventDefault();
+      menu.classList.toggle("show");
+    });
   });
 
   // ============ زر الهمبرغر ============
@@ -38,10 +27,11 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // إغلاق القائمة عند الضغط على أي رابط
+  // ============ إغلاق الهمبرغر والقوائم عند النقر على رابط ============
   if (mainNav) {
     mainNav.querySelectorAll("a").forEach(link => {
       link.addEventListener("click", () => {
+        // إغلاق الهمبرغر
         if (hamburger) hamburger.classList.remove("active");
         if (mainNav) mainNav.classList.remove("active");
         document.body.classList.remove("no-scroll");
@@ -53,7 +43,6 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
   }
-
 
   // ============ معرض الفيديو ============
   const videoItems = document.querySelectorAll(".video-item video");
@@ -68,21 +57,22 @@ document.addEventListener("DOMContentLoaded", function () {
         this.pause();
       });
 
-     video.addEventListener("click", function () {
-  let modal = document.createElement("div");
-  modal.style.cssText = `
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0,0,0,0.95);
-    z-index: 9999;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-  `;
+      video.addEventListener("click", function () {
+        // إنشاء Modal
+        let modal = document.createElement("div");
+        modal.style.cssText = `
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100vw;
+          height: 100vh;
+          background: rgba(0,0,0,0.95);
+          z-index: 9999;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: 20px;
+        `;
 
         let modalContent = document.createElement("div");
         modalContent.style.cssText = `
@@ -166,4 +156,3 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
-
