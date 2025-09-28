@@ -1,83 +1,29 @@
 document.addEventListener("DOMContentLoaded", function () {
   // ============ القوائم المنسدلة ============
-  const dropdowns = [
-    {
-      el: document.getElementById("worksDropdown"),
-      menu: null,
-      timeout: null
-    },
-    {
-      el: document.getElementById("productsDropdown"),
-      menu: null,
-      timeout: null
-    },
-    {
-      el: document.getElementById("servicesDropdown"),
-      menu: null,
-      timeout: null
-    }
-  ];
+  const dropdowns = document.querySelectorAll(".dropdown");
 
-  dropdowns.forEach(item => {
-    if (item.el) {
-      item.menu = item.el.querySelector(".dropdown-menu");
-    }
-  });
+  dropdowns.forEach(dropdown => {
+    const toggle = dropdown.querySelector("a");
+    const menu = dropdown.querySelector(".dropdown-menu");
 
-  const closeAllMenus = () => {
-    dropdowns.forEach(item => {
-      if (item.timeout) {
-        clearTimeout(item.timeout);
-        item.timeout = null;
-      }
-      if (item.menu) {
-        item.menu.classList.remove("show");
-      }
-    });
-  };
+    if (!menu) return;
 
-  const openMenu = (targetMenu) => {
-    closeAllMenus();
-    targetMenu.classList.add("show");
-  };
-
-  const scheduleClose = (item) => {
-    item.timeout = setTimeout(() => {
-      if (item.menu) {
-        item.menu.classList.remove("show");
-      }
-      item.timeout = null;
-    }, 500);
-  };
-
-  dropdowns.forEach(item => {
-    if (!item.el || !item.menu) return;
-
-    const { el, menu } = item;
-
-    const handleMouseEnter = () => {
-      if (item.timeout) {
-        clearTimeout(item.timeout);
-        item.timeout = null;
-      }
-      openMenu(menu);
-    };
-
-    const handleMouseLeave = () => {
-      scheduleClose(item);
-    };
-
-    el.addEventListener("mouseenter", handleMouseEnter);
-    el.addEventListener("mouseleave", handleMouseLeave);
-    menu.addEventListener("mouseenter", handleMouseEnter);
-    menu.addEventListener("mouseleave", handleMouseLeave);
-
-    el.addEventListener("click", function(e) {
-      if (window.innerWidth <= 768) {
+    // على الجوال — النقر يفتح/يغلق القائمة
+    if (window.innerWidth <= 768) {
+      toggle.addEventListener("click", function(e) {
         e.preventDefault();
         menu.classList.toggle("show");
-      }
-    });
+      });
+    } 
+    // على الكمبيوتر — استخدام الـ hover
+    else {
+      dropdown.addEventListener("mouseenter", () => {
+        menu.classList.add("show");
+      });
+      dropdown.addEventListener("mouseleave", () => {
+        menu.classList.remove("show");
+      });
+    }
   });
 
   // ============ زر الهمبرغر ============
@@ -99,9 +45,15 @@ document.addEventListener("DOMContentLoaded", function () {
         if (hamburger) hamburger.classList.remove("active");
         if (mainNav) mainNav.classList.remove("active");
         document.body.classList.remove("no-scroll");
+        
+        // إغلاق جميع القوائم المنسدلة
+        document.querySelectorAll(".dropdown-menu").forEach(menu => {
+          menu.classList.remove("show");
+        });
       });
     });
   }
+
 
   // ============ معرض الفيديو ============
   const videoItems = document.querySelectorAll(".video-item video");
