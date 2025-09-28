@@ -2015,4 +2015,32 @@ video {
   .contact-grid {
     gap: 30px;
   }
+
+}
+/* تصغير الخط على الجوال */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px; /* حجم خط أصغر */
+  }
+  h1 {
+    font-size: 1.8rem !important;
+  }
+  h2 {
+    font-size: 1.5rem !important;
+  }
+  p, .nav a {
+    font-size: 1rem !important;
+  }
+  
+}
+@media (max-width: 768px) {
+  .search input {
+    width: 180px; /* 👈 أصغر */
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+  .search-btn {
+    width: 36px;
+    height: 36px;
+  }
 }
