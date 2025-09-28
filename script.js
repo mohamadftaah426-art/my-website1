@@ -68,22 +68,21 @@ document.addEventListener("DOMContentLoaded", function () {
         this.pause();
       });
 
-      video.addEventListener("click", function () {
-        // إنشاء Modal
-        let modal = document.createElement("div");
-        modal.style.cssText = `
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 100vw;
-          height: 100vh;
-          background: rgba(0,0,0,0.95);
-          z-index: 9999;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          padding: 20px;
-        `;
+     video.addEventListener("click", function () {
+  let modal = document.createElement("div");
+  modal.style.cssText = `
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.95);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  `;
 
         let modalContent = document.createElement("div");
         modalContent.style.cssText = `
@@ -167,3 +166,4 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
+
