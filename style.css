@@ -104,17 +104,26 @@ body {
   filter: invert(1); /* إذا كانت الصورة سوداء */
 }
 
-/* Hero */
 .hero {
   background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
-              url("background.jpg") no-repeat center center/cover;
-  height: 100vh;
+              url("background.png") no-repeat center center/cover;
+  height: 70vh; /* 👈 أقل ارتفاعًا على الجوال */
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 80px;
   text-align: center;
   color: #fff;
+  position: relative;
+}
+
+/* على الجوال — نستخدم contain بدل cover */
+@media (max-width: 768px) {
+  .hero {
+    background-size: contain; /* 👈 يعرض الصورة كاملة دون اقتطاع */
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 60vh;
+  }
 }
 
 
@@ -2044,3 +2053,4 @@ video {
     height: 36px;
   }
 }
+
