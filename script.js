@@ -75,11 +75,7 @@ document.addEventListener("DOMContentLoaded", function () {
     el.addEventListener("click", function(e) {
       if (window.innerWidth <= 768) {
         e.preventDefault();
-        if (menu.classList.contains("show")) {
-          menu.classList.remove("show");
-        } else {
-          openMenu(menu);
-        }
+        menu.classList.toggle("show");
       }
     });
   });
@@ -96,7 +92,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // إغلاق القائمة عند الضغط على رابط
+  // إغلاق القائمة عند الضغط على أي رابط
   if (mainNav) {
     mainNav.querySelectorAll("a").forEach(link => {
       link.addEventListener("click", () => {
@@ -106,7 +102,6 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
   }
-
 
   // ============ معرض الفيديو ============
   const videoItems = document.querySelectorAll(".video-item video");
@@ -189,34 +184,34 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // ============ معرض الصور ============
-const galleryImages = document.querySelectorAll(".gallery img");
-const imageModal = document.getElementById("imageModal");
-const modalImage = document.getElementById("modalImage");
-const caption = document.getElementById("caption");
-const closeModalBtn = document.querySelector(".modal-close");
+  const galleryImages = document.querySelectorAll(".gallery img");
+  const imageModal = document.getElementById("imageModal");
+  const modalImage = document.getElementById("modalImage");
+  const caption = document.getElementById("caption");
+  const closeModalBtn = document.querySelector(".modal-close");
 
-if (galleryImages.length > 0 && imageModal) {
-  galleryImages.forEach(img => {
-    img.addEventListener("click", function () {
-      modalImage.src = this.src;
-      caption.textContent = this.alt || "";
-      imageModal.style.display = "flex";
-      document.body.style.overflow = "hidden";
+  if (galleryImages.length > 0 && imageModal) {
+    galleryImages.forEach(img => {
+      img.addEventListener("click", function () {
+        modalImage.src = this.src;
+        caption.textContent = this.alt || "";
+        imageModal.style.display = "flex";
+        document.body.style.overflow = "hidden";
+      });
     });
-  });
 
-  if (closeModalBtn) {
-    closeModalBtn.addEventListener("click", function () {
-      imageModal.style.display = "none";
-      document.body.style.overflow = "auto";
+    if (closeModalBtn) {
+      closeModalBtn.addEventListener("click", function () {
+        imageModal.style.display = "none";
+        document.body.style.overflow = "auto";
+      });
+    }
+
+    imageModal.addEventListener("click", function (e) {
+      if (e.target === imageModal) {
+        imageModal.style.display = "none";
+        document.body.style.overflow = "auto";
+      }
     });
   }
-
-  imageModal.addEventListener("click", function (e) {
-    if (e.target === imageModal) {
-      imageModal.style.display = "none";
-      document.body.style.overflow = "auto";
-    }
-  });
-}
 });
