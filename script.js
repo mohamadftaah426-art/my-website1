@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // ============ القوائم المنسدلة (تعمل بالضغط فقط) ============
+  // ============ القوائم المنسدلة داخل الهمبرغر ============
   const dropdowns = document.querySelectorAll("#mainNav .dropdown");
 
   dropdowns.forEach(dropdown => {
@@ -8,7 +8,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (!menu) return;
 
-    // إزالة أي تأثير للمرور (hover) — والاعتماد على النقر فقط
     toggle.addEventListener("click", function(e) {
       e.preventDefault();
       menu.classList.toggle("show");
@@ -27,22 +26,26 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // ============ إغلاق الهمبرغر والقوائم عند النقر على رابط ============
+  // ============ إغلاق الهمبرغر عند النقر على رابط يؤدي لصفحة ============
   if (mainNav) {
     mainNav.querySelectorAll("a").forEach(link => {
-      link.addEventListener("click", () => {
-        // إغلاق الهمبرغر
-        if (hamburger) hamburger.classList.remove("active");
-        if (mainNav) mainNav.classList.remove("active");
-        document.body.classList.remove("no-scroll");
-        
-        // إغلاق جميع القوائم المنسدلة
-        document.querySelectorAll(".dropdown-menu").forEach(menu => {
-          menu.classList.remove("show");
-        });
+      link.addEventListener("click", function() {
+        const href = this.getAttribute("href");
+        // إذا كان الرابط ليس # ولا يحتوي على dropdown
+        if (href !== "#" && !this.closest(".dropdown")) {
+          if (hamburger) hamburger.classList.remove("active");
+          if (mainNav) mainNav.classList.remove("active");
+          document.body.classList.remove("no-scroll");
+          
+          // إغلاق جميع القوائم المنسدلة
+          document.querySelectorAll(".dropdown-menu").forEach(menu => {
+            menu.classList.remove("show");
+          });
+        }
       });
     });
   }
+
 
   // ============ معرض الفيديو ============
   const videoItems = document.querySelectorAll(".video-item video");
