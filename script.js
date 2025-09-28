@@ -19,7 +19,9 @@ document.addEventListener("DOMContentLoaded", function () {
   ];
 
   dropdowns.forEach(item => {
-    item.menu = item.el.querySelector(".dropdown-menu");
+    if (item.el) {
+      item.menu = item.el.querySelector(".dropdown-menu");
+    }
   });
 
   const closeAllMenus = () => {
@@ -28,7 +30,9 @@ document.addEventListener("DOMContentLoaded", function () {
         clearTimeout(item.timeout);
         item.timeout = null;
       }
-      item.menu.classList.remove("show");
+      if (item.menu) {
+        item.menu.classList.remove("show");
+      }
     });
   };
 
@@ -39,12 +43,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const scheduleClose = (item) => {
     item.timeout = setTimeout(() => {
-      item.menu.classList.remove("show");
+      if (item.menu) {
+        item.menu.classList.remove("show");
+      }
       item.timeout = null;
     }, 500);
   };
 
   dropdowns.forEach(item => {
+    if (!item.el || !item.menu) return;
+
     const { el, menu } = item;
 
     const handleMouseEnter = () => {
@@ -88,13 +96,17 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  document.querySelectorAll("#mainNav a").forEach(link => {
-    link.addEventListener("click", () => {
-      if (hamburger) hamburger.classList.remove("active");
-      if (mainNav) mainNav.classList.remove("active");
-      document.body.classList.remove("no-scroll");
+  // إغلاق القائمة عند الضغط على رابط
+  if (mainNav) {
+    mainNav.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        if (hamburger) hamburger.classList.remove("active");
+        if (mainNav) mainNav.classList.remove("active");
+        document.body.classList.remove("no-scroll");
+      });
     });
-  });
+  }
+
 
   // ============ معرض الفيديو ============
   const videoItems = document.querySelectorAll(".video-item video");
