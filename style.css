@@ -104,6 +104,7 @@ body {
   filter: invert(1); /* إذا كانت الصورة سوداء */
 }
 
+/* Hero */
 .hero {
   background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
               url("background.jpg") no-repeat center center/cover;
@@ -125,7 +126,6 @@ body {
     height: 60vh;
   }
 }
-
 
 .hero-content h1 {
   font-size: 3.5rem;
@@ -1044,6 +1044,7 @@ video {
   border: none;
   outline: none;
 }
+
 
 /* Modal */
 .modal {
@@ -2024,7 +2025,6 @@ video {
   .contact-grid {
     gap: 30px;
   }
-
 }
 /* تصغير الخط على الجوال */
 @media (max-width: 768px) {
@@ -2052,7 +2052,8 @@ video {
     width: 36px;
     height: 36px;
   }
-}/* =============== تصحيح الفيديوهات في المقاولات والآلات الثقيلة =============== */
+}
+/* =============== تصحيح الفيديوهات في المقاولات والآلات الثقيلة =============== */
 .video-grid-large {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -2098,8 +2099,3 @@ video {
   font-weight: 500;
   border-radius: 0 0 15px 15px;
 }
-
-
-
-
-
