@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // ============ القوائم المنسدلة داخل الهمبرغر ============
+  // ============ القوائم المنسدلة داخل الهمبرغر (تعمل بالضغط فقط) ============
   const dropdowns = document.querySelectorAll("#mainNav .dropdown");
 
   dropdowns.forEach(dropdown => {
@@ -31,8 +31,8 @@ document.addEventListener("DOMContentLoaded", function () {
     mainNav.querySelectorAll("a").forEach(link => {
       link.addEventListener("click", function() {
         const href = this.getAttribute("href");
-        // إذا كان الرابط ليس # ولا يحتوي على dropdown
-        if (href !== "#" && !this.closest(".dropdown")) {
+        // إذا كان الرابط يؤدي لصفحة خارجية (ليس #)
+        if (href !== "#" && href !== "") {
           if (hamburger) hamburger.classList.remove("active");
           if (mainNav) mainNav.classList.remove("active");
           document.body.classList.remove("no-scroll");
@@ -45,7 +45,6 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
   }
-
 
   // ============ معرض الفيديو ============
   const videoItems = document.querySelectorAll(".video-item video");
