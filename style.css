@@ -2052,5 +2052,52 @@ video {
     width: 36px;
     height: 36px;
   }
+}/* =============== تصحيح الفيديوهات في المقاولات والآلات الثقيلة =============== */
+.video-grid-large {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+  margin: 50px 0;
 }
+
+.video-item-large {
+  width: 100%;
+}
+
+.video-item-large video {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  background: #000;
+  display: block;
+}
+
+/* على الجوال — جعل الفيديو متجاوبًا */
+@media (max-width: 768px) {
+  .video-grid-large {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .video-item-large video {
+    height: auto; /* 👈 يحافظ على النسبة */
+    max-height: 250px; /* 👈 يحد من الارتفاع */
+    object-fit: contain; /* 👈 يعرض الفيديو كاملًا دون اقتطاع */
+  }
+}
+
+.video-item-large .video-caption {
+  text-align: center;
+  font-size: 1rem;
+  color: #333;
+  padding: 15px;
+  background: #fff;
+  margin: 0;
+  font-weight: 500;
+  border-radius: 0 0 15px 15px;
+}
+
+
 
