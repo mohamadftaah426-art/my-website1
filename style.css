@@ -106,7 +106,7 @@ body {
 
 .hero {
   background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
-              url("background.png") no-repeat center center/cover;
+              url("background.jpg") no-repeat center center/cover;
   height: 70vh; /* 👈 أقل ارتفاعًا على الجوال */
   display: flex;
   justify-content: center;
@@ -2098,6 +2098,7 @@ video {
   font-weight: 500;
   border-radius: 0 0 15px 15px;
 }
+
 
 
 
